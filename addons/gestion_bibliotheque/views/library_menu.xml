@@ -1,0 +1,4 @@
+<odoo>
+    <!-- Main Library Menu -->
+    <menuitem id="menu_library_root" name="Library" sequence="10" />
+</odoo>

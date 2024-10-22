@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_book_user,access_book_user,model_gestion_bibliotheque_book,base.group_user,1,1,1,1
+access_member_user,access_member_user,model_gestion_bibliotheque_member,base.group_user,1,1,1,1
+access_borrow_record_user,access_borrow_record_user,model_gestion_bibliotheque_borrow_record,base.group_user,1,1,1,1
+access_author_user,access_author_user,model_gestion_bibliotheque_author,base.group_user,1,1,1,1

@@ -1,0 +1,41 @@
+<odoo>
+    <!-- Main Menu Item -->
+    <menuitem id="my_module_menu" name="My Module" sequence="1" />
+
+    <!-- Views -->
+    <record id="view_my_model_form" model="ir.ui.view">
+        <field name="name">my.model.form</field>
+        <field name="model">my.model</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name" />
+                        <field name="description" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_my_model_tree" model="ir.ui.view">
+        <field name="name">my.model.tree</field>
+        <field name="model">my.model</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name" />
+            </tree>
+        </field>
+    </record>
+
+    <!-- Create an action for the tree view -->
+    <record id="action_my_model" model="ir.actions.act_window">
+        <field name="name">My Model</field>
+        <field name="res_model">my.model</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Link the action to the menu item -->
+    <menuitem id="my_model_menu_item" name="My Model" parent="my_module_menu"
+        action="action_my_model" sequence="1" />
+</odoo>

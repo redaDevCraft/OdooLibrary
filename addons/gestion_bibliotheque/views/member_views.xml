@@ -1,0 +1,45 @@
+<odoo>
+    <!-- Action for Members -->
+    <record id="action_member" model="ir.actions.act_window">
+        <field name="name">Members</field>
+        <field name="res_model">gestion_bibliotheque.member</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Tree view for Members -->
+    <record id="view_member_tree" model="ir.ui.view">
+        <field name="name">member.tree</field>
+        <field name="model">gestion_bibliotheque.member</field>
+        <field name="arch" type="xml">
+            <tree string="Members">
+                <field name="nom" />
+                <field name="prenom" />
+                <field name="nationalite" />
+                <field name="sexe" />
+                <field name="date_naissance" />
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form view for Members -->
+    <record id="view_member_form" model="ir.ui.view">
+        <field name="name">member.form</field>
+        <field name="model">gestion_bibliotheque.member</field>
+        <field name="arch" type="xml">
+            <form string="Members">
+                <sheet>
+                    <group>
+                        <field name="nom" />
+                        <field name="prenom" />
+                        <field name="nationalite" />
+                        <field name="sexe" />
+                        <field name="date_naissance" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Menu for Members -->
+    <menuitem id="menu_member_root" name="Members" parent="menu_library_root" action="action_member" />
+</odoo>

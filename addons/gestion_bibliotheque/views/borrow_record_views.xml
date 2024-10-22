@@ -1,0 +1,46 @@
+<odoo>
+    <!-- Action for Borrow Records -->
+    <record id="action_borrow_record" model="ir.actions.act_window">
+        <field name="name">Borrow Records</field>
+        <field name="res_model">gestion_bibliotheque.borrow_record</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Tree view for Borrow Records -->
+    <record id="view_borrow_record_tree" model="ir.ui.view">
+        <field name="name">borrow_record.tree</field>
+        <field name="model">gestion_bibliotheque.borrow_record</field>
+        <field name="arch" type="xml">
+            <tree string="Borrow Records">
+                <field name="book_id" />
+                <field name="member_id" />
+                <field name="date_debut" />
+                <field name="date_fin" />
+                <field name="rendu" />
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form view for Borrow Records -->
+    <record id="view_borrow_record_form" model="ir.ui.view">
+        <field name="name">borrow_record.form</field>
+        <field name="model">gestion_bibliotheque.borrow_record</field>
+        <field name="arch" type="xml">
+            <form string="Borrow Records">
+                <sheet>
+                    <group>
+                        <field name="book_id" />
+                        <field name="member_id" />
+                        <field name="date_debut" />
+                        <field name="date_fin" />
+                        <field name="rendu" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Menu for Borrow Records -->
+    <menuitem id="menu_borrow_record_root" name="Borrow Records" parent="menu_library_root"
+        action="action_borrow_record" />
+</odoo>
