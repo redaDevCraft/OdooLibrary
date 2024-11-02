@@ -1,0 +1,32 @@
+<odoo>
+    <!-- Tree View for Loans -->
+    <record id="view_loan_tree" model="ir.ui.view">
+        <field name="name">library.loan.tree</field>
+        <field name="model">library.loan</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="borrower_id" />
+                <field name="start_date" />
+                <field name="end_date" />
+                <field name="returned" />
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form View for Loans -->
+    <record id="view_loan_form" model="ir.ui.view">
+        <field name="name">library.loan.form</field>
+        <field name="model">library.loan</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <field name="borrower_id" />
+                    <field name="start_date" readonly="1" />
+                    <field name="end_date" />
+                    <field name="returned" />
+                    <field name="loan_line_ids" />
+                </group>
+            </form>
+        </field>
+    </record>
+</odoo>
