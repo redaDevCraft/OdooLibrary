@@ -13,3 +13,4 @@ class Member(models.Model):
         ('femme', 'Femme')
     ], string='Sexe', required=True)
     date_naissance = fields.Date(string='Date de Naissance')  # Date of birth
+

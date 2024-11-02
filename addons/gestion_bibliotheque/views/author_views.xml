@@ -1,12 +1,4 @@
 <odoo>
-    <!-- Action for Authors -->
-    <record id="action_author" model="ir.actions.act_window">
-        <field name="name">Authors</field>
-        <field name="res_model">gestion_bibliotheque.author</field>
-        <field name="view_mode">tree,form</field>
-    </record>
-
-    <!-- Tree view for Authors -->
     <record id="view_author_tree" model="ir.ui.view">
         <field name="name">author.tree</field>
         <field name="model">gestion_bibliotheque.author</field>
@@ -20,7 +12,6 @@
         </field>
     </record>
 
-    <!-- Form view for Authors -->
     <record id="view_author_form" model="ir.ui.view">
         <field name="name">author.form</field>
         <field name="model">gestion_bibliotheque.author</field>
@@ -41,6 +32,30 @@
         </field>
     </record>
 
+    <record id="view_author_search" model="ir.ui.view">
+        <field name="name">author.search</field>
+        <field name="model">gestion_bibliotheque.author</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="nom" string="Name" />
+                <field name="prenom" string="First Name" />
+                <filter name="tunisian_authors" string="Tunisian Authors"
+                    domain="[('nationalite', '=', 'Tunisien')]" />
+            </search>
+        </field>
+    </record>
+
+    <!-- Action for Authors -->
+    <record id="action_author" model="ir.actions.act_window">
+        <field name="name">Authors</field>
+        <field name="res_model">gestion_bibliotheque.author</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="view_author_tree" />
+        <field name="search_view_id" ref="view_author_search" /> <!-- Reference to search view -->
+    </record>
+
     <!-- Menu for Authors -->
     <menuitem id="menu_author_root" name="Authors" parent="menu_library_root" action="action_author" />
+
+
 </odoo>

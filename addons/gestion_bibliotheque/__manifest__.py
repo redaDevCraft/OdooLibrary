@@ -6,7 +6,7 @@
         A module to manage books, members, and borrowing records in a library system.
         This includes managing the borrowing start and end dates, with nationality defaulted to Algerian.
     """,
-    'author': 'Your Name',
+    'author': 'TALEB NASRI',
     'website': 'http://yourwebsite.com',
     'category': 'Library Management',
     'depends': ['base'],
@@ -17,6 +17,7 @@
         'views/member_views.xml',
         'views/borrow_record_views.xml',
         'views/author_views.xml',
+        'views/emprunt_ligne_views.xml',
           
 
     ],
