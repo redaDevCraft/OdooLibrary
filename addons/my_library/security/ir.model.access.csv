@@ -4,3 +4,4 @@ access_library_book,library.book,model_library_book,,1,1,1,1
 access_library_borrower,library.borrower,model_library_borrower,,1,1,1,1
 access_library_loan,library.loan,model_library_loan,,1,1,1,1
 access_library_loan_line,library.loan.line,model_library_loan_line,,1,1,1,1
+access_library_empwizard,access_library_empwizard,model_library_empwizard,,1,1,1,1

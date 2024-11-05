@@ -1,0 +1,24 @@
+<odoo>
+
+    <record id="view_empwizard_form" model="ir.ui.view">
+        <field name="name">library.empwizard.form</field>
+        <field name="model">library.empwizard</field>
+        <field name="arch" type="xml">
+            <form string="Add Borrow">
+                <group>
+                    <field name="borrower_id" />
+                </group>
+                <group>
+                    <field name="start_date" />
+                    <field name="end_date" />
+                </group>
+                <footer>
+                    <button string="Add Borrow" type="object" name="add_borrow" class="btn-primary" />
+                    <button string="Cancel" class="btn-secondary" special="cancel" />
+                </footer>
+            </form>
+        </field>
+    </record>
+
+
+</odoo>

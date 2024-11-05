@@ -22,7 +22,6 @@
     <menuitem id="menu_library_books_action" parent="menu_library_books"
         action="action_library_books" />
 
-    <!-- Submenu for Borrowers -->
     <menuitem id="menu_library_borrowers" name="Borrowers" parent="menu_library_root" sequence="4" />
     <record id="action_library_borrowers" model="ir.actions.act_window">
         <field name="name">Borrowers</field>
@@ -41,4 +40,18 @@
     </record>
     <menuitem id="menu_library_loans_action" parent="menu_library_loans"
         action="action_library_loans" />
+
+
+    <record id="action_library_loans" model="ir.actions.act_window">
+        <field name="name">Loans</field>
+        <field name="res_model">library.loan</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="action_empwizard" model="ir.actions.act_window">
+        <field name="name">Add Borrow</field>
+        <field name="res_model">library.empwizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
 </odoo>

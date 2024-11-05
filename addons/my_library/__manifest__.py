@@ -13,7 +13,7 @@
     'views/borrower_views.xml',
     'views/loan_views.xml',
     'views/loan_line_views.xml',
-],
+    'views/empwizard_views.xml',],
 
     'installable': True,
     'application': True,
