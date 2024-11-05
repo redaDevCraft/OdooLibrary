@@ -15,7 +15,7 @@ class Loan(models.Model):
     def _check_dates(self):
         for record in self:
             if record.start_date and record.end_date and record.start_date >= record.end_date:
-                raise ValidationError("The start date must be before the end date.")
+                raise ValidationError("La date de début doit etre avant la date de fin")
 
     @api.onchange('end_date')
     def _onchange_end_date(self):
