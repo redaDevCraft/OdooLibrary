@@ -5,7 +5,7 @@ class Loan(models.Model):
     _name = 'library.loan'
     _description = 'Loan'
 
-    borrower_id = fields.Many2one('library.borrower', string='Borrower', required=True, ondelete='cascade')
+    borrower_id = fields.Many2one('library.borrower', string='Borrower', required=True)
     start_date = fields.Date(string='Start Date', default=fields.Date.today, required=True)
     end_date = fields.Date(string='End Date', required=True)
     returned = fields.Selection([('yes', 'Yes'), ('no', 'No')], string='Returned', default='no')
@@ -22,3 +22,5 @@ class Loan(models.Model):
         for record in self:
             if record.end_date == fields.Date.today():
                 record.returned = 'yes'
+
+   

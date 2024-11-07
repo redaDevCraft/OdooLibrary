@@ -1,4 +1,4 @@
-from odoo import models, fields
+from odoo import models, fields,api
 
 class Borrower(models.Model):
     _name = 'library.borrower'
@@ -15,3 +15,11 @@ class Borrower(models.Model):
     def _compute_loan_count(self):
         for record in self:
             record.loan_count = len(record.loan_ids)
+
+    def unlink(self):
+        loan_model = self.env['library.loan']
+        for borrower in self:
+           
+            loans = loan_model.search([('borrower_id', '=', borrower.id)])
+            loans.unlink()
+        return super(Borrower, self).unlink()

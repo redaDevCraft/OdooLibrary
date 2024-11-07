@@ -16,21 +16,19 @@
         <field name="name">library.loan.form</field>
         <field name="model">library.loan</field>
         <field name="arch" type="xml">
-            <header>
-                <button name="%(action_empwizard)d" string="Add Borrow" type="action"
-                    class="btn-primary" />
-            </header>
             <form>
+                <header>
+                    <button name="%(action_empwizard)d" string="Add Borrow" type="action" class="btn-primary"/>
+                </header>
                 <group>
-                    <field name="borrower_id" />
-                    <field name="start_date" readonly="1" />
-                    <field name="end_date" />
-                    <field name="returned" />
-                    <field name="loan_line_ids" />
+                    <field name="borrower_id"/>
+                    <field name="start_date" readonly="1"/>
+                    <field name="end_date"/>
+                    <field name="returned"/>
+                    <field name="loan_line_ids"/>
                 </group>
             </form>
         </field>
     </record>
-
 
 </odoo>
