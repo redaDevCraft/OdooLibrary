@@ -1,4 +1,5 @@
-from odoo import models, fields,api
+from odoo import models, fields, api
+from odoo.exceptions import AccessError
 
 class Borrower(models.Model):
     _name = 'library.borrower'
@@ -16,10 +17,24 @@ class Borrower(models.Model):
         for record in self:
             record.loan_count = len(record.loan_ids)
 
+    @api.model
+    def create(self, vals):
+        if self.env.user.has_group('my_library.group_library_secretary'):
+            raise AccessError("You do not have permission to create records.")
+        return super(Borrower, self).create(vals)
+
+    def write(self, vals):
+        if self.env.user.has_group('my_library.group_library_secretary'):
+            raise AccessError("You do not have permission to update records.")
+        return super(Borrower, self).write(vals)
+
     def unlink(self):
+        if self.env.user.has_group('my_library.group_library_secretary'):
+            raise AccessError("You do not have permission to delete records.")
+        
         loan_model = self.env['library.loan']
         for borrower in self:
-           
             loans = loan_model.search([('borrower_id', '=', borrower.id)])
             loans.unlink()
+        
         return super(Borrower, self).unlink()

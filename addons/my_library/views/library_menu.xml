@@ -54,4 +54,12 @@
         <field name="view_mode">form</field>
         <field name="target">new</field>
     </record>
+
+    <record id="action_reset_borrowings_wizard" model="ir.actions.act_window">
+        <field name="name">Reset borrow</field>
+        <field name="res_model">library.resetwizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
 </odoo>

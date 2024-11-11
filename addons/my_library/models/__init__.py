@@ -4,3 +4,4 @@ from . import borrower
 from . import loan
 from . import loan_line
 from . import empwizard
+from .import resetwizard

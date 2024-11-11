@@ -1,5 +1,5 @@
 from odoo import models, fields, api
-from odoo.exceptions import ValidationError
+from odoo.exceptions import AccessError, ValidationError
 
 class Loan(models.Model):
     _name = 'library.loan'
@@ -23,4 +23,8 @@ class Loan(models.Model):
             if record.end_date == fields.Date.today():
                 record.returned = 'yes'
 
-   
+    @api.model
+    def unlink(self):
+        if not self.env.user.has_group('my_library.group_library_secretary'):
+            raise AccessError("You do not have permission to delete records.")
+        return super(Loan, self).unlink()

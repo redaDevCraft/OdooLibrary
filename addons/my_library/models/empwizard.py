@@ -1,33 +1,31 @@
 from odoo import models, fields, api
+from odoo.exceptions import UserError
 
 class EmpWizard(models.TransientModel):
     _name = 'library.empwizard'
     _description = 'Wizard to add borrow records'
 
-    borrower_id = fields.Many2one('res.partner', string='Borrower', required=True)
-    start_date = fields.Date(string='Start Date', required=True)
+    borrower_id = fields.Many2one('library.borrower', string='Borrower', required=True)
+    start_date = fields.Date(string='Start Date', default=fields.Date.today, required=True,readonly=True)
     end_date = fields.Date(string='End Date', required=True)
 
-    @api.model
-    def default_get(self, fields):
-        res = super(EmpWizard, self).default_get(fields)
-        return res
-
     def add_borrow(self):
-        borrow_record = self.env['library.borrow_record'].create({
+        borrow_record = self.env['library.loan'].create({
             'borrower_id': self.borrower_id.id,
             'start_date': self.start_date,
             'end_date': self.end_date,
         })
         
-        borrow_lines = []
         books = self.env['library.book'].search([])
-        for book in books:
-            borrow_lines.append((0, 0, {
-                'book_id': book.id,
-                'borrow_record_id': borrow_record.id,
-            }))
+        borrow_lines = [(0, 0, {'book_id': book.id}) for book in books]
         
-        borrow_record.write({'borrow_line_ids': [(6, 0, [line[2]['book_id'] for line in borrow_lines])]})
+        borrow_record.write({'loan_line_ids': borrow_lines})
         
         return {'type': 'ir.actions.act_window_close'}
+
+    def reset_borrowings(self):
+            if not self.borrower_id:
+                raise UserError("Please select a borrower to reset borrowings.")
+
+            loans = self.env['library.loan'].search([('borrower_id', '=', self.borrower_id.id)])
+            loans.unlink()
