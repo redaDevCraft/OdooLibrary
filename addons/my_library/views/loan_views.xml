@@ -17,16 +17,7 @@
         <field name="model">library.loan</field>
         <field name="arch" type="xml">
             <form>
-                <header>
-                    <button name="%(action_empwizard)d" string="Add Borrow" type="action"
-                        class="btn-primary" />
-                    <button name="%(action_reset_borrowings_wizard)d"
-                        string="Reset Borrowings"
-                        type="action"
-                        class="btn-secondary"
-                        groups="my_library.group_library_director"
-                    />
-                </header>
+
                 <group>
                     <field name="borrower_id" />
                     <field name="start_date" readonly="1" />

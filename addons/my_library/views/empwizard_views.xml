@@ -11,10 +11,17 @@
                     <field name="start_date" />
                     <field name="end_date" />
                 </group>
+                <group>
+                    <field name="loan_line_ids">
+                        <tree editable="bottom">
+                            <field name="book_id" />
+                            <field name="isbn" />
+                            <field name="page_count" />
+                        </tree>
+                    </field>
+                </group>
                 <footer>
                     <button string="Add Borrow" type="object" name="add_borrow" class="btn-primary" />
-
-
                     <button string="Cancel" class="btn-secondary" special="cancel" />
                 </footer>
             </form>

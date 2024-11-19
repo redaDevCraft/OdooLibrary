@@ -28,13 +28,4 @@ class Borrower(models.Model):
             raise AccessError("You do not have permission to update records.")
         return super(Borrower, self).write(vals)
 
-    def unlink(self):
-        if self.env.user.has_group('my_library.group_library_secretary'):
-            raise AccessError("You do not have permission to delete records.")
-        
-        loan_model = self.env['library.loan']
-        for borrower in self:
-            loans = loan_model.search([('borrower_id', '=', borrower.id)])
-            loans.unlink()
-        
-        return super(Borrower, self).unlink()
+    
