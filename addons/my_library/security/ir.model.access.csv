@@ -7,18 +7,4 @@ access_library_loan_line,library.loan.line,model_library_loan_line,,1,1,1,1
 access_library_empwizard,access_library_empwizard,model_library_empwizard,,1,1,1,1
 access_library_resetwizard,access_library_resetwizard,model_library_resetwizard,,1,1,1,1
 
-access_library_loan_director,Access Library Loan Director,model_library_author,my_library.group_library_director,1,1,1,1
-access_library_loan_director,Access Library Loan Director,model_library_book,my_library.group_library_director,1,1,1,1
-access_library_loan_director,Access Library Loan Director,model_library_borrower,my_library.group_library_director,1,1,1,1
-access_library_loan_director,Access Library Loan Director,model_library_loan,my_library.group_library_director,1,1,1,1
-access_library_loan_director,Access Library Loan Director,model_library_loan_line,my_library.group_library_director,1,1,1,1
-access_library_loan_director,Access Library Loan Director,model_library_resetwizard,my_library.group_library_director,1,1,1,1
-access_library_loan_director,Access Library Loan Director,model_library_empwizard,my_library.group_library_director,1,1,1,1
 
-access_library_secretary,my_library.access_library_secretary,model_library_author,my_library.group_library_secretary,1,0,0,0
-access_library_secretary,my_library.access_library_secretary,model_library_book,my_library.group_library_secretary,1,0,0,0
-access_library_secretary,my_library.access_library_secretary,model_library_borrower,my_library.group_library_secretary,1,0,0,0
-access_library_secretary,my_library.access_library_secretary,model_library_loan,my_library.group_library_secretary,1,1,1,0
-access_library_secretary,my_library.access_library_secretary,model_library_loan_line,my_library.group_library_secretary,1,0,0,0
-access_library_secretary,my_library.access_library_secretary,model_library_resetwizard,my_library.group_library_secretary,1,0,0,0
-access_library_secretary,my_library.access_library_secretary,model_library_empwizard,my_library.group_library_secretary,1,0,0,0

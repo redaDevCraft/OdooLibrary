@@ -1,0 +1,106 @@
+<odoo>
+    <report id="loan_report"
+        model="library.loan"
+        string="Fiche Emprunt"
+        report_type="qweb-pdf"
+        name="my_library.fiche_template_loan"
+    />
+
+    <template id="fiche_template_loan">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="web.external_layout">
+                    <t t-set="styles">
+                        <style type="text/css">
+                            h2 {
+                            color: #3c8dbc;
+                            font-size: 24px;
+                            margin-bottom: 20px;
+                            }
+                            p {
+                            font-size: 14px;
+                            margin-bottom: 10px;
+                            }
+                            strong {
+                            font-weight: bold;
+                            }
+                            ul {
+                            list-style-type: none;
+                            padding: 0;
+                            }
+                            li {
+                            margin-bottom: 15px;
+                            border-bottom: 1px solid #ccc;
+                            padding-bottom: 10px;
+                            }
+                            .col-xs-6 {
+                            width: 100%;
+                            }
+                        </style>
+                    </t>
+
+                    <!-- Report Content -->
+                    <div class="page">
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <h2>Emprunts</h2>
+                                <p>
+                                    <strong>Start Date:</strong>
+                                    <span t-field="doc.start_date" />
+                                </p>
+                                <p>
+                                    <strong>End Date:</strong>
+                                    <span t-field="doc.end_date" />
+                                </p>
+                                <p>
+                                    <strong>Returned:</strong>
+                                    <span t-field="doc.returned" />
+                                </p>
+                                <p>
+                                    <strong>Emprunt ligne:</strong>
+                                </p>
+                                <ul>
+                                    <t t-foreach="doc.loan_line_ids" t-as="emprunt">
+                                        <li>
+                                            <p>
+                                                <strong>ISBN:</strong>
+                                                <span t-field="emprunt.book_id.isbn" />
+                                            </p>
+                                            <p>
+                                                <strong>Language:</strong>
+                                                <span t-field="emprunt.book_id.language" />
+                                            </p>
+                                            <p>
+                                                <strong>Nombre de pages:</strong>
+                                                <span t-field="emprunt.book_id.page_count" />
+                                            </p>
+                                        </li>
+                                    </t>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+    <record id="my_library_paper_format" model="report.paperformat">
+        <field name="name">A4</field>
+        <field name="format">A4</field>
+        <field name="orientation">Portrait</field>
+        <field name="margin_top">10</field>
+        <field name="margin_bottom">10</field>
+        <field name="margin_left">10</field>
+        <field name="margin_right">10</field>
+    </record>
+
+    <record id="my_library_loan_report" model="ir.actions.report">
+        <field name="name">Loan Report</field>
+        <field name="model">library.loan</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">my_library.fiche_template_loan</field>
+        <field name="report_file">my_library.fiche_template_loan</field>
+        <field name="paperformat_id" ref="my_library_paper_format" />
+    </record>
+</odoo>

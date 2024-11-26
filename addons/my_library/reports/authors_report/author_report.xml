@@ -1,0 +1,7 @@
+<odoo>
+    <report id="author_report"
+        model="library.author"
+        string="Fiche Auteur"
+        report_type="qweb-pdf"
+        name="my_library.fiche_template" />
+</odoo>

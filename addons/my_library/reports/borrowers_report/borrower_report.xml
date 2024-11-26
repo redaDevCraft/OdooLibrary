@@ -1,0 +1,7 @@
+<odoo>
+    <report id="borrower_report"
+        model="library.borrower"
+        string="Fiche Borrower"
+        report_type="qweb-pdf"
+        name="my_library.borrower_report_template" />
+</odoo>

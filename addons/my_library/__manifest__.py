@@ -16,6 +16,16 @@
     'views/loan_line_views.xml',
     'views/empwizard_views.xml',
     'views/reset_empwizard-views.xml',
+    'reports/authors_report/author_report.xml',
+    'reports/authors_report/author_template.xml',
+    'reports/borrowers_report/borrower_template.xml',
+    'reports/borrowers_report/borrower_report.xml' ,
+     'reports/loans_report/loan_template.xml',
+    'reports/loans_report/loan_report.xml' ,
+    
+   
+   
+    
 
     ],
 

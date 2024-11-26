@@ -1,0 +1,32 @@
+<odoo>
+    <template id="fiche_template">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <h2>Author</h2>
+                                <p>
+                                    <strong>Name:</strong>
+                                    <span t-field="doc.name" />
+                                </p>
+                                <p>
+                                    <strong>Books:</strong>
+                                </p>
+                                <ul>
+                                    <t t-foreach="doc.book_ids" t-as="book">
+                                        <li>
+                                            <span t-field="book.title" />
+                                        </li>
+                                    </t>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </t>
+            </t>
+
+        </t>
+    </template>
+</odoo>
